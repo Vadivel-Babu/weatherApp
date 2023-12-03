@@ -24,7 +24,7 @@ const getWeather= async() => {
     if(res.cod === '404'){
       card.innerHTML = `<p class='name'>${res.message}</p>`
     } else {
-      card.innerHTML = `<img src="./images/${res.weather[0].main}.jpg" alt="" class="img">
+      card.innerHTML = `<img src="./images/${res.weather[0].main.toLowerCase()}.jpg" alt="" class="img">
       <h2 class="name">${res.name}</h2>
       <h2 class="name">${res.weather[0].main}</h2>
       <h2 class="name">${Math.floor(res.main.temp - 273.15)} <sup>o</sup>c</h2>`
