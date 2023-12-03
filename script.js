@@ -11,8 +11,8 @@ const getWeather= async() => {
   const red = Math.floor(Math.random()*255);
   const green = Math.floor(Math.random()*255);
   const blue = Math.floor(Math.random()*255);
-  console.log(red,green,blue);
-  if(val.value === ''){
+  
+  if(val.value.trim() === ''){
     alert("Input can't be empty")
     return;
   }
@@ -20,7 +20,7 @@ const getWeather= async() => {
   try {
     const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val.value}&appid=${Key}`);
     const res = await data.json();
-    console.log(res); 
+    
     if(res.cod === '404'){
       card.innerHTML = `<p class='name'>${res.message}</p>`
     } else {
